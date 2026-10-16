@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camps n Kayaks — Odisha Maritime Adventure</title>
+  <meta name="description" content="Into The Wild: kayaking, wall climbing, zipline, jungle safari & nature camping across Cuttack, Bhubaneswar, Chandaka & Chilika." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --forest: #14281D;
+      --forest-mid: #1E3A2A;
+      --moss: #2F5238;
+      --river: #1B4965;
+      --river-deep: #0F2E42;
+      --amber: #F4A261;
+      --amber-soft: #F6B67A;
+      --sand: #E9D8A6;
+      --offwhite: #F8F9FA;
+      --mist: rgba(248, 249, 250, 0.72);
+      --ink: #0A1610;
+      --glass: rgba(20, 40, 29, 0.55);
+      --glass-border: rgba(248, 249, 250, 0.18);
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+      --font-display: "Barlow Condensed", sans-serif;
+      --font-body: "Figtree", sans-serif;
+      --nav-h: 4.5rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: auto;
+      background: var(--ink);
+    }
+
+    html.lenis, html.lenis body { height: auto; }
+    .lenis.lenis-smooth { scroll-behavior: auto !important; }
+    .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+    .lenis.lenis-stopped { overflow: hidden; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--offwhite);
+      background:
+        radial-gradient(120% 80% at 10% -10%, rgba(27, 73, 101, 0.35), transparent 55%),
+        radial-gradient(90% 60% at 100% 20%, rgba(244, 162, 97, 0.12), transparent 45%),
+        linear-gradient(180deg, var(--ink) 0%, var(--forest) 35%, var(--river-deep) 70%, var(--ink) 100%);
+      background-attachment: fixed;
+      line-height: 1.55;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img, video { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; border: 0; cursor: pointer; background: none; color: inherit; }
+    ul { list-style: none; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    /* —— Nav —— */
+    .nav {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(1.25rem, 4vw, 3.5rem);
+      background: linear-gradient(180deg, rgba(10, 22, 16, 0.85), transparent);
+      backdrop-filter: blur(0px);
+      transition: background 0.4s var(--ease-out), backdrop-filter 0.4s;
+    }
+
+    .nav.is-scrolled {
+      background: rgba(10, 22, 16, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .nav__brand {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav__brand span { color: var(--amber); }
+
+    .nav__links {
+      display: flex;
+      gap: clamp(1rem, 2.5vw, 2rem);
+      align-items: center;
+    }
+
+    .nav__links a {
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      opacity: 0.85;
+      transition: opacity 0.25s, color 0.25s;
+    }
+
+    .nav__links a:hover { opacity: 1; color: var(--amber); }
+
+    .nav__cta {
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      background: var(--amber);
+      color: var(--ink);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+      transition: transform 0.25s var(--ease-out), background 0.25s;
+    }
+
+    .nav__cta:hover { transform: translateY(-2px); background: var(--amber-soft); }
+
+    .nav__toggle {
+      display: none;
+      width: 2.5rem;
+      height: 2.5rem;
+      place-items: center;
+      border: 1px solid var(--glass-border);
+      border-radius: 0.5rem;
+    }
+
+    .nav__toggle span {
+      display: block;
+      width: 1.15rem;
+      height: 2px;
+      background: var(--offwhite);
+      position: relative;
+    }
+
+    .nav__toggle span::before,
+    .nav__toggle span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: inherit;
+    }
+
+    .nav__toggle span::before { top: -6px; }
+    .nav__toggle span::after { top: 6px; }
+
+    /* —— Shared —— */
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.75rem;
+    }
+
+    .display {
+      font-family: var(--font-display);
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      line-height: 0.95;
+    }
+
+    .lede {
+      max-width: 34rem;
+      color: var(--mist);
+      font-size: clamp(1rem, 1.5vw, 1.125rem);
+    }
+
+    .section-pad {
+      padding: clamp(4rem, 10vw, 7rem) clamp(1.25rem, 4vw, 3.5rem);
+    }
+
+    /* —— Hero —— */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: grid;
+      align-items: end;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero__layers {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero__layer {
+      position: absolute;
+      inset: -8%;
+      will-change: transform;
+    }
+
+    .hero__layer--video video,
+    .hero__layer--mid img,
+    .hero__layer--fg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero__layer--video { z-index: 1; }
+
+    .hero__layer--mid {
+      z-index: 2;
+      opacity: 0.28;
+      mix-blend-mode: soft-light;
+      mask-image: linear-gradient(180deg, transparent 0%, #000 35%, #000 65%, transparent 100%);
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 35%, #000 65%, transparent 100%);
+    }
+
+    .hero__layer--fg {
+      z-index: 3;
+      opacity: 0.45;
+      mask-image: linear-gradient(to top, #000 0%, transparent 50%);
+      -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero__veil {
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      background:
+        linear-gradient(180deg, rgba(10, 22, 16, 0.35) 0%, rgba(10, 22, 16, 0.08) 32%, rgba(10, 22, 16, 0.55) 72%, var(--ink) 100%),
+        linear-gradient(90deg, rgba(20, 40, 29, 0.35), transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 5;
+      width: min(72rem, 100%);
+      padding: 0 clamp(1.25rem, 4vw, 3.5rem) clamp(3.5rem, 8vw, 5.5rem);
+      will-change: transform, opacity;
+    }
+
+    .hero__brand {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(3.4rem, 12vw, 8.5rem);
+      line-height: 0.88;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+      text-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    }
+
+    .hero__brand em {
+      font-style: normal;
+      color: var(--amber);
+    }
+
+    .hero__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.35rem, 3.2vw, 2.35rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      max-width: 18ch;
+      margin-bottom: 1rem;
+      color: var(--offwhite);
+    }
+
+    .hero__copy {
+      max-width: 32rem;
+      margin-bottom: 1.75rem;
+      color: var(--mist);
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.45rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      transition: transform 0.3s var(--ease-out), background 0.3s, color 0.3s, border-color 0.3s;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn--primary {
+      background: var(--amber);
+      color: var(--ink);
+    }
+
+    .btn--primary:hover { background: var(--amber-soft); }
+
+    .btn--ghost {
+      border: 1px solid var(--glass-border);
+      background: rgba(248, 249, 250, 0.06);
+      backdrop-filter: blur(10px);
+    }
+
+    .btn--ghost:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    .hero__scroll {
+      position: absolute;
+      right: clamp(1.25rem, 4vw, 3.5rem);
+      bottom: clamp(2rem, 5vw, 3.5rem);
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+
+    .hero__scroll-line {
+      width: 1px;
+      height: 3.5rem;
+      background: linear-gradient(var(--amber), transparent);
+      transform-origin: top;
+      animation: pulse-line 2.2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-line {
+      0%, 100% { transform: scaleY(0.45); opacity: 0.4; }
+      50% { transform: scaleY(1); opacity: 1; }
+    }
+
+    /* —— Sequence —— */
+    .sequence {
+      position: relative;
+      background: var(--ink);
+    }
+
+    .sequence__pin {
+      position: relative;
+      height: 100svh;
+      overflow: hidden;
+    }
+
+    .sequence__stage {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+    }
+
+    .sequence__frame {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      clip-path: inset(12% 12% 12% 12% round 1.25rem);
+      will-change: clip-path, opacity, transform;
+    }
+
+    .sequence__frame.is-active { opacity: 1; }
+
+    .sequence__frame img,
+    .sequence__frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .sequence__overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background:
+        linear-gradient(180deg, rgba(10, 22, 16, 0.55), transparent 30%, transparent 60%, rgba(10, 22, 16, 0.8)),
+        linear-gradient(90deg, rgba(10, 22, 16, 0.65), transparent 40%);
+      pointer-events: none;
+    }
+
+    .sequence__copy {
+      position: absolute;
+      z-index: 3;
+      left: clamp(1.25rem, 4vw, 3.5rem);
+      bottom: clamp(2.5rem, 8vw, 5rem);
+      max-width: min(34rem, 90vw);
+    }
+
+    .sequence__copy h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 0.95;
+      margin-bottom: 0.75rem;
+    }
+
+    .sequence__copy p {
+      color: var(--mist);
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      max-width: 28rem;
+    }
+
+    .sequence__progress {
+      position: absolute;
+      z-index: 4;
+      right: clamp(1.25rem, 4vw, 3.5rem);
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .sequence__dot {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: rgba(248, 249, 250, 0.25);
+      transition: background 0.35s, transform 0.35s;
+    }
+
+    .sequence__dot.is-on {
+      background: var(--amber);
+      transform: scale(1.35);
+    }
+
+    /* —— Activities carousel —— */
+    .activities {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .activities__head {
+      margin-bottom: clamp(2rem, 5vw, 3.5rem);
+    }
+
+    .activities__head h2 {
+      font-size: clamp(2.6rem, 7vw, 5.5rem);
+      max-width: 12ch;
+      margin-bottom: 0.85rem;
+    }
+
+    .carousel {
+      perspective: 1400px;
+      padding: 1rem 0 2.5rem;
+      cursor: grab;
+      touch-action: pan-y;
+      user-select: none;
+    }
+
+    .carousel:active { cursor: grabbing; }
+
+    .carousel__track {
+      display: flex;
+      gap: clamp(1rem, 2.5vw, 1.75rem);
+      width: max-content;
+      padding: 1.5rem clamp(1.25rem, 4vw, 3.5rem);
+      transform-style: preserve-3d;
+      will-change: transform;
+    }
+
+    .carousel__card {
+      position: relative;
+      width: min(22rem, 78vw);
+      height: min(28rem, 70vh);
+      flex-shrink: 0;
+      border-radius: 1.25rem;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      will-change: transform;
+      background: var(--forest-mid);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    .carousel__card img,
+    .carousel__card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      pointer-events: none;
+    }
+
+    .carousel__meta {
+      position: absolute;
+      inset: auto 0 0 0;
+      padding: 3.5rem 1.35rem 1.35rem;
+      background: linear-gradient(transparent, rgba(10, 22, 16, 0.92));
+    }
+
+    .carousel__meta h3 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.35rem;
+    }
+
+    .carousel__meta p {
+      font-size: 0.95rem;
+      color: var(--mist);
+    }
+
+    .carousel__hint {
+      margin-top: 0.5rem;
+      padding: 0 clamp(1.25rem, 4vw, 3.5rem);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(248, 249, 250, 0.45);
+      font-family: var(--font-display);
+    }
+
+    /* —— Horizontal gallery —— */
+    .filmstrip {
+      position: relative;
+      background: linear-gradient(180deg, transparent, rgba(27, 73, 101, 0.18), transparent);
+    }
+
+    .filmstrip__pin {
+      height: 100svh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .filmstrip__intro {
+      padding: 0 clamp(1.25rem, 4vw, 3.5rem) 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .filmstrip__intro h2 {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      max-width: 14ch;
+    }
+
+    .filmstrip__viewport {
+      overflow: hidden;
+      width: 100%;
+    }
+
+    .filmstrip__track {
+      display: flex;
+      gap: clamp(1rem, 2vw, 1.5rem);
+      width: max-content;
+      padding: 0.5rem clamp(1.25rem, 4vw, 3.5rem) 1rem;
+      will-change: transform;
+    }
+
+    .filmstrip__card {
+      position: relative;
+      width: min(70vw, 32rem);
+      height: min(58vh, 26rem);
+      flex-shrink: 0;
+      border-radius: 1rem;
+      overflow: hidden;
+      background: var(--forest-mid);
+    }
+
+    .filmstrip__media {
+      position: absolute;
+      inset: -12%;
+      width: 124%;
+      height: 124%;
+      will-change: transform;
+    }
+
+    .filmstrip__media img,
+    .filmstrip__media video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .filmstrip__caption {
+      position: absolute;
+      left: 1.1rem;
+      bottom: 1.1rem;
+      right: 1.1rem;
+      z-index: 2;
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    /* —— Booking —— */
+    .booking {
+      position: relative;
+    }
+
+    .booking__grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: clamp(1.5rem, 4vw, 3rem);
+      align-items: start;
+    }
+
+    .booking__intro h2 {
+      font-size: clamp(2.6rem, 6vw, 4.8rem);
+      max-width: 10ch;
+      margin-bottom: 1rem;
+    }
+
+    .packages {
+      display: grid;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .package {
+      padding: 1.35rem 1.4rem;
+      border: 1px solid var(--glass-border);
+      border-radius: 1rem;
+      background: rgba(248, 249, 250, 0.04);
+      backdrop-filter: blur(12px);
+      transition: border-color 0.3s, transform 0.3s var(--ease-out), background 0.3s;
+    }
+
+    .package:hover {
+      border-color: rgba(244, 162, 97, 0.55);
+      background: rgba(244, 162, 97, 0.08);
+      transform: translateY(-3px);
+    }
+
+    .package h3 {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.35rem;
+    }
+
+    .package__price {
+      color: var(--amber);
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .package p { color: var(--mist); font-size: 0.95rem; }
+
+    .booking__panel {
+      position: sticky;
+      top: calc(var(--nav-h) + 1rem);
+      padding: 1.75rem;
+      border-radius: 1.35rem;
+      border: 1px solid var(--glass-border);
+      background:
+        linear-gradient(145deg, rgba(27, 73, 101, 0.35), rgba(20, 40, 29, 0.65)),
+        rgba(10, 22, 16, 0.55);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    .booking__panel h3 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .booking__panel p {
+      color: var(--mist);
+      margin-bottom: 1.25rem;
+    }
+
+    .info-rows {
+      display: grid;
+      gap: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-row {
+      display: flex;
+      gap: 0.85rem;
+      align-items: flex-start;
+      padding-bottom: 0.85rem;
+      border-bottom: 1px solid rgba(248, 249, 250, 0.1);
+    }
+
+    .info-row:last-child { border-bottom: 0; padding-bottom: 0; }
+
+    .info-row strong {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.15rem;
+    }
+
+    .info-row span { color: var(--mist); font-size: 0.92rem; }
+
+    .booking__actions {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .booking__actions .btn { width: 100%; }
+
+    /* —— Footer —— */
+    .footer {
+      padding: 2.5rem clamp(1.25rem, 4vw, 3.5rem) 6.5rem;
+      border-top: 1px solid var(--glass-border);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+      color: rgba(248, 249, 250, 0.55);
+      font-size: 0.9rem;
+    }
+
+    .footer strong {
+      color: var(--offwhite);
+      font-family: var(--font-display);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* —— Floating CTA —— */
+    .float-cta {
+      position: fixed;
+      z-index: 120;
+      right: clamp(1rem, 3vw, 2rem);
+      bottom: clamp(1rem, 3vw, 2rem);
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+      align-items: flex-end;
+    }
+
+    .float-cta__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      padding: 0.85rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--glass-border);
+      background: rgba(20, 40, 29, 0.65);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: transform 0.3s var(--ease-out), background 0.3s, border-color 0.3s;
+    }
+
+    .float-cta__btn:hover {
+      transform: translateY(-3px);
+      border-color: var(--amber);
+    }
+
+    .float-cta__btn--wa {
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.9), rgba(18, 140, 70, 0.95));
+      border-color: transparent;
+      color: #fff;
+    }
+
+    .float-cta__btn svg { width: 1.15rem; height: 1.15rem; flex-shrink: 0; }
+
+    /* —— Reduced motion —— */
+    @media (prefers-reduced-motion: reduce) {
+      .hero__scroll-line { animation: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* —— Responsive —— */
+    @media (max-width: 900px) {
+      .nav__links { display: none; }
+      .nav__links.is-open {
+        display: flex;
+        position: absolute;
+        top: var(--nav-h);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        padding: 1.25rem;
+        gap: 1rem;
+        background: rgba(10, 22, 16, 0.96);
+        border-bottom: 1px solid var(--glass-border);
+      }
+      .nav__toggle { display: grid; }
+      .booking__grid { grid-template-columns: 1fr; }
+      .booking__panel { position: static; }
+      .hero__scroll { display: none; }
+      .sequence__progress { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      .filmstrip__card {
+        width: 85vw;
+        height: 48vh;
+      }
+      .float-cta__btn span.hide-sm { display: none; }
+      .float-cta__btn { padding: 0.9rem; border-radius: 50%; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav" aria-label="Primary">
+    <a class="nav__brand" href="#top">Camps <span>n</span> Kayaks</a>
+    <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+      <span></span>
+    </button>
+    <div class="nav__links" id="navLinks">
+      <a href="#journey">Journey</a>
+      <a href="#activities">Activities</a>
+      <a href="#expeditions">Expeditions</a>
+      <a href="#book" class="nav__cta">Book Now</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero" id="hero" aria-label="Hero">
+      <div class="hero__layers" aria-hidden="true">
+        <div class="hero__layer hero__layer--video" data-speed="0.15">
+          <video id="heroVideo" muted loop playsinline autoplay preload="metadata"></video>
+        </div>
+        <div class="hero__layer hero__layer--mid" data-speed="0.35">
+          <img id="heroMid" alt="" />
+        </div>
+        <div class="hero__layer hero__layer--fg" data-speed="0.6">
+          <img id="heroFg" alt="" />
+        </div>
+        <div class="hero__veil"></div>
+      </div>
+
+      <div class="hero__content" id="heroContent">
+        <p class="hero__brand">Camps <em>n</em> Kayaks</p>
+        <h1 class="hero__title">Into The Wild: Water &amp; Land Based Adventure</h1>
+        <p class="hero__copy">Odisha Maritime adventures from Cuttack &amp; Bhubaneswar — kayaking Chilika waters, climbing Chandaka canopy, and camping under Godibari skies.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#book">Plan Your Escape</a>
+          <a class="btn btn--ghost" href="#journey">Watch The Journey</a>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="hero__scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- SCROLL IMAGE SEQUENCE -->
+    <section class="sequence" id="journey" aria-label="Adventure journey">
+      <div class="sequence__pin" id="sequencePin">
+        <div class="sequence__stage" id="sequenceStage"></div>
+        <div class="sequence__overlay"></div>
+        <div class="sequence__copy">
+          <p class="section-label">The Journey</p>
+          <h2 id="sequenceTitle">Kayaking Chilika</h2>
+          <p id="sequenceText">Paddle calm backwaters and river bends around Cuttack &amp; Chilika as the day opens wide.</p>
+        </div>
+        <div class="sequence__progress" id="sequenceDots" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- 3D CAROUSEL -->
+    <section class="activities section-pad" id="activities">
+      <div class="activities__head">
+        <p class="section-label">What We Run</p>
+        <h2 class="display">Five ways into the wild</h2>
+        <p class="lede">Drag to explore — cards tilt with your momentum. From water lines to canopy lines, every trail starts here.</p>
+      </div>
+      <div class="carousel" id="carousel" aria-label="Activities carousel">
+        <div class="carousel__track" id="carouselTrack"></div>
+      </div>
+      <p class="carousel__hint">Drag · Scroll sideways · Hover to tilt</p>
+    </section>
+
+    <!-- HORIZONTAL FILMSTRIP -->
+    <section class="filmstrip" id="expeditions" aria-label="Expedition highlights">
+      <div class="filmstrip__pin" id="filmstripPin">
+        <div class="filmstrip__intro">
+          <p class="section-label">Expedition Reel</p>
+          <h2 class="display">Highlights across land &amp; water</h2>
+        </div>
+        <div class="filmstrip__viewport">
+          <div class="filmstrip__track" id="filmstripTrack"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="booking section-pad" id="book">
+      <div class="booking__grid">
+        <div class="booking__intro">
+          <p class="section-label">Packages &amp; Timing</p>
+          <h2 class="display">Ready when you are</h2>
+          <p class="lede">Day adventures and overnight nature stays around Godibari Nature Camp, Chandaka &amp; Chilika. Open every day — book in one tap.</p>
+
+          <div class="packages" id="packages"></div>
+        </div>
+
+        <aside class="booking__panel">
+          <h3>Instant booking</h3>
+          <p>Message us on WhatsApp for slots, group sizes, and custom trails. We’ll guide you from Bhubaneswar or Cuttack.</p>
+          <div class="info-rows">
+            <div class="info-row">
+              <div>
+                <strong>Hours</strong>
+                <span>Open every day · 8:00 AM – 5:00 PM</span>
+              </div>
+            </div>
+            <div class="info-row">
+              <div>
+                <strong>Bases</strong>
+                <span>Godibari Nature Camp · Chandaka · Chilika · Cuttack / Bhubaneswar</span>
+              </div>
+            </div>
+            <div class="info-row">
+              <div>
+                <strong>Contact</strong>
+                <span>+91 70081 73767</span>
+              </div>
+            </div>
+          </div>
+          <div class="booking__actions">
+            <a class="btn btn--primary" id="waBook" href="#" target="_blank" rel="noopener noreferrer">WhatsApp Booking</a>
+            <a class="btn btn--ghost" id="mapsLink" href="#" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><strong>Camps n Kayaks</strong> — Odisha Maritime</p>
+    <p>Outdoor adventure · Watersports · Nature camping</p>
+  </footer>
+
+  <div class="float-cta" aria-label="Quick actions">
+    <a class="float-cta__btn float-cta__btn--wa" id="waFloat" href="#" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.15 1.6 5.96L0 24l6.3-1.65a11.87 11.87 0 0 0 5.76 1.47h.01c6.56 0 11.9-5.34 11.9-11.9 0-3.18-1.24-6.17-3.45-8.44ZM12.07 21.15h-.01a9.86 9.86 0 0 1-5.02-1.37l-.36-.21-3.74.98 1-3.64-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.9 6.98c0 5.45-4.44 9.87-9.91 9.87Zm5.42-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35Z"/></svg>
+      <span class="hide-sm">Book on WhatsApp</span>
+    </a>
+    <a class="float-cta__btn" id="mapsFloat" href="#" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s7-7.2 7-12a7 7 0 1 0-14 0c0 4.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      <span class="hide-sm">Maps</span>
+    </a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script>
+    /* =============================================================================
+       ASSETS CONFIG — map your local files here
+       Swap any URL with your exact paths, e.g. "./images/img1.jpg"
+       Videos currently point at files in ./assets/
+       ============================================================================= */
+    /* Storebox CDN media (website 1cb689ae-67af-4056-8356-4c4e9e9efc90) */
+    const MEDIA = {
+      "seq-kayak.jpg": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/1a8668af-ddb0-4adc-a577-62bb769951ab/seq-kayak.jpg",
+      "seq-zipline.jpg": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/efc58590-0758-41d8-afbe-34a613eccf5e/seq-zipline.jpg",
+      "seq-climb.jpg": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/315dd6bf-ee94-4e68-8c18-00d8809bcd32/seq-climb.jpg",
+      "seq-camp.jpg": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/9f7104fd-28b9-4c89-a61e-9b23a054ef70/seq-camp.jpg",
+      "hero-expedition.mp4": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/ed47b10b-e06f-4d5b-a1da-f2d1b6ba150a/hero-expedition.mp4",
+      "hero-water.jpg": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/86a4ce32-c758-4a95-8d46-0cfc92468903/hero-water.jpg",
+      "hero-mid.jpg": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/e4ffafdf-bae9-49b4-ad5b-3bcad503557d/hero-mid.jpg",
+      "hero-fg.jpg": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/a4b91961-c226-4856-b72c-455e7bdf1c12/hero-fg.jpg",
+      "film-night.jpg": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/6c5e6c5f-2133-4457-a7ef-acee8ce5582d/film-night.jpg",
+      "film-safari.jpg": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/10d257a9-c117-4930-80d3-cadad4527ca9/film-safari.jpg",
+      "film-dawn.jpg": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/dfa2d1ed-4f83-4d43-9c93-5576227b7082/film-dawn.jpg",
+      "film-climb.jpg": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/e1c57257-dab9-4d62-a9fb-e2b3c706922c/film-climb.jpg",
+      "film-bonfire.jpg": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/0432c111-057e-42c4-b220-cc3cec93fbe6/film-bonfire.jpg",
+      "climbing-reel.mp4": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/3bb087c9-e804-478d-871f-0a14306e41fa/climbing-reel.mp4",
+      "adventure-clip.mp4": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/ab114027-394b-4985-b30d-744ffb8ba07e/adventure-clip.mp4",
+      "camp-still.webp": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/f4f17fbe-67c6-4496-984a-3767f9300329/camp-still.webp",
+      "act-zipline.jpg": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/5e85423d-5a44-4f45-a79b-a32951125dc2/act-zipline.jpg",
+      "act-safari.jpg": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/8c9b4b96-c605-4892-8700-1f67e9613a9c/act-safari.jpg",
+      "act-climb.jpg": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/2577d98f-4925-448e-a3ee-4780a1aa30f4/act-climb.jpg",
+      "act-kayak.jpg": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/c5b8eaf8-6bd4-42b8-8199-b633298096dd/act-kayak.jpg",
+      "act-camp.jpg": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/032660a6-5da0-4e87-83f4-2ccb7ad9eda8/act-camp.jpg",
+      "savefromins-com-1-720P.mp4": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/d5566456-5045-42eb-bbf4-dbc351898e66/savefromins-com-1-720P.mp4",
+      "savefromins-com-When-somanath_darling-climbs-we-watch-CampsnkayaksXchandaka-Godibari-Nature-Camp-Chandaka-Odisha-Cuttack.mp4": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/22453928-2018-43b5-bd01-87d36d3ad95d/savefromins-com-When-somanath_darling-climbs-we-watch-CampsnkayaksXchandaka-Godibari-Nature-Camp-Chandaka-Odisha-Cuttack.mp4",
+      "AQNDDXCvqKloXzI7oGSSbOx4xfXS9Oi8W92od7CdZ1nLA2BuMre9gzOz1mecXh0DrDrFyjcwUu1i5ehUXqPQ8ZzrrmHHBzMucykPt58.mp4": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/68281c1c-5a88-464d-95d4-c725d96037a1/AQNDDXCvqKloXzI7oGSSbOx4xfXS9Oi8W92od7CdZ1nLA2BuMre9gzOz1mecXh0DrDrFyjcwUu1i5ehUXqPQ8ZzrrmHHBzMucykPt58.mp4",
+      "765284180_18116972765481579_6980684621325529896_n.webp": "https://cdn.storebox.ai/media/1cb689ae-67af-4056-8356-4c4e9e9efc90/b6aa7955-febd-407a-b47b-315d8b84e38e/765284180_18116972765481579_6980684621325529896_n.webp",
+    };
+
+    const ASSETS = {
+      contact: {
+        whatsapp: "917008173767",
+        whatsappMessage: "Hi Camps n Kayaks! I'd like to book an adventure.",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Godibari+Nature+Camp+Chandaka+Bhubaneswar",
+      },
+
+      videos: {
+        hero: MEDIA["hero-expedition.mp4"],
+        clip: MEDIA["adventure-clip.mp4"],
+        climbing: MEDIA["climbing-reel.mp4"],
+      },
+
+      hero: {
+        mid: MEDIA["hero-mid.jpg"],
+        fg: MEDIA["hero-fg.jpg"],
+        still: MEDIA["camp-still.webp"],
+      },
+
+      // Pinned scroll journey: Kayaking → Climbing → Zipline → Camp
+      sequence: [
+        {
+          src: MEDIA["seq-kayak.jpg"],
+          title: "Kayaking Chilika",
+          text: "Paddle calm backwaters and river bends around Cuttack & Chilika as the day opens wide.",
+          type: "image",
+        },
+        {
+          src: MEDIA["climbing-reel.mp4"],
+          title: "Wall Climbing",
+          text: "Grip the wall at Chandaka — strength, focus, and height in one climb.",
+          type: "video",
+        },
+        {
+          src: MEDIA["seq-zipline.jpg"],
+          title: "Canopy Zipline",
+          text: "Cut through jungle air above Chandaka’s green corridor — pure speed, pure thrill.",
+          type: "image",
+        },
+        {
+          src: MEDIA["adventure-clip.mp4"],
+          title: "Into The Wild",
+          text: "Feel the tempo of Odisha’s outdoor trails — water, rock, and canopy in motion.",
+          type: "video",
+        },
+        {
+          src: MEDIA["seq-camp.jpg"],
+          title: "Night Camping",
+          text: "Bonfire glow at Godibari Nature Camp — stars, stories, and the forest settling in.",
+          type: "image",
+        },
+      ],
+
+      // 3D drag carousel
+      activities: [
+        {
+          title: "Kayaking",
+          text: "Chilika & Cuttack waterways",
+          src: MEDIA["act-kayak.jpg"],
+        },
+        {
+          title: "Wall Climbing",
+          text: "Vertical challenge at Chandaka",
+          src: MEDIA["act-climb.jpg"],
+        },
+        {
+          title: "Zipline",
+          text: "High-speed canopy flight",
+          src: MEDIA["act-zipline.jpg"],
+        },
+        {
+          title: "Jungle Safari",
+          text: "Wildlife trails near Chandaka",
+          src: MEDIA["act-safari.jpg"],
+        },
+        {
+          title: "Camping",
+          text: "Godibari Nature Camp nights",
+          src: MEDIA["act-camp.jpg"],
+        },
+      ],
+
+      // Horizontal filmstrip
+      filmstrip: [
+        {
+          caption: "Dawn paddle · Chilika",
+          src: MEDIA["film-dawn.jpg"],
+          type: "image",
+        },
+        {
+          caption: "Expedition · On trail",
+          src: MEDIA["hero-expedition.mp4"],
+          type: "video",
+        },
+        {
+          caption: "Hold the wall · Chandaka",
+          src: MEDIA["climbing-reel.mp4"],
+          type: "video",
+        },
+        {
+          caption: "Safari track · Jungle",
+          src: MEDIA["film-safari.jpg"],
+          type: "image",
+        },
+        {
+          caption: "Motion · Adventure clip",
+          src: MEDIA["adventure-clip.mp4"],
+          type: "video",
+        },
+        {
+          caption: "Bonfire · Godibari",
+          src: MEDIA["film-bonfire.jpg"],
+          type: "image",
+        },
+      ],
+
+      packages: [
+        {
+          title: "Into The Wild 2.0",
+          price: "₹1600 / person",
+          text: "Full-day mix of water & land thrills — kayak, climb, and canopy energy.",
+        },
+        {
+          title: "Kayak Day Pass",
+          price: "Custom / group",
+          text: "Guided paddling sessions on Chilika & local Cuttack waterways.",
+        },
+        {
+          title: "Nature Camp Night",
+          price: "Ask for rates",
+          text: "Overnight at Godibari — bonfire, tent comfort, and forest quiet.",
+        },
+      ],
+    };
+
+    /* —— Boot —— */
+    gsap.registerPlugin(ScrollTrigger);
+
+    const waUrl = `https://wa.me/${ASSETS.contact.whatsapp}?text=${encodeURIComponent(ASSETS.contact.whatsappMessage)}`;
+    ["waBook", "waFloat"].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.href = waUrl;
+    });
+    ["mapsLink", "mapsFloat"].forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.href = ASSETS.contact.mapsUrl;
+    });
+
+    /* Hero media */
+    const heroVideo = document.getElementById("heroVideo");
+    heroVideo.src = ASSETS.videos.hero;
+    heroVideo.play().catch(() => {});
+
+    document.getElementById("heroMid").src = ASSETS.hero.mid;
+    document.getElementById("heroFg").src = ASSETS.hero.fg;
+
+    /* Build sequence frames */
+    const stage = document.getElementById("sequenceStage");
+    const dots = document.getElementById("sequenceDots");
+    const seqFrames = ASSETS.sequence.map((item, i) => {
+      const frame = document.createElement("div");
+      frame.className = "sequence__frame" + (i === 0 ? " is-active" : "");
+      if (item.type === "video") {
+        const v = document.createElement("video");
+        v.src = item.src;
+        v.muted = true;
+        v.loop = true;
+        v.playsInline = true;
+        v.preload = "metadata";
+        frame.appendChild(v);
+      } else {
+        const img = document.createElement("img");
+        img.src = item.src;
+        img.alt = item.title;
+        frame.appendChild(img);
+      }
+      stage.appendChild(frame);
+
+      const dot = document.createElement("div");
+      dot.className = "sequence__dot" + (i === 0 ? " is-on" : "");
+      dots.appendChild(dot);
+
+      return { frame, dot, item, video: frame.querySelector("video") };
+    });
+
+    /* Build carousel */
+    const track = document.getElementById("carouselTrack");
+    ASSETS.activities.forEach((act) => {
+      const card = document.createElement("article");
+      card.className = "carousel__card";
+      card.innerHTML = `
+        <img src="${act.src}" alt="${act.title}" draggable="false" />
+        <div class="carousel__meta">
+          <h3>${act.title}</h3>
+          <p>${act.text}</p>
+        </div>`;
+      track.appendChild(card);
+    });
+
+    /* Build filmstrip */
+    const filmTrack = document.getElementById("filmstripTrack");
+    ASSETS.filmstrip.forEach((shot) => {
+      const card = document.createElement("article");
+      card.className = "filmstrip__card";
+      const media = document.createElement("div");
+      media.className = "filmstrip__media";
+      if (shot.type === "video") {
+        const v = document.createElement("video");
+        v.src = shot.src;
+        v.muted = true;
+        v.loop = true;
+        v.playsInline = true;
+        v.autoplay = true;
+        v.preload = "metadata";
+        media.appendChild(v);
+      } else {
+        const img = document.createElement("img");
+        img.src = shot.src;
+        img.alt = shot.caption;
+        media.appendChild(img);
+      }
+      const caption = document.createElement("p");
+      caption.className = "filmstrip__caption";
+      caption.textContent = shot.caption;
+      card.appendChild(media);
+      card.appendChild(caption);
+      filmTrack.appendChild(card);
+    });
+
+    /* Packages */
+    const packagesEl = document.getElementById("packages");
+    ASSETS.packages.forEach((pkg) => {
+      const el = document.createElement("article");
+      el.className = "package";
+      el.innerHTML = `
+        <h3>${pkg.title}</h3>
+        <p class="package__price">${pkg.price}</p>
+        <p>${pkg.text}</p>`;
+      packagesEl.appendChild(el);
+    });
+
+    /* Nav */
+    const nav = document.getElementById("nav");
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    navToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", String(open));
+    });
+    navLinks.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("click", () => {
+        navLinks.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    /* Lenis + GSAP */
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let lenis;
+
+    if (!reduceMotion) {
+      lenis = new Lenis({
+        duration: 1.15,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+      });
+
+      lenis.on("scroll", ScrollTrigger.update);
+      gsap.ticker.add((time) => lenis.raf(time * 1000));
+      gsap.ticker.lagSmoothing(0);
+    }
+
+    /* Nav scrolled state */
+    const setNavScroll = () => nav.classList.toggle("is-scrolled", (lenis ? lenis.scroll : window.scrollY) > 80);
+    if (lenis) lenis.on("scroll", setNavScroll);
+    else window.addEventListener("scroll", setNavScroll, { passive: true });
+    setNavScroll();
+
+    /* Hero parallax + title scrub */
+    const mm = gsap.matchMedia();
+
+    mm.add("(prefers-reduced-motion: no-preference)", () => {
+      gsap.utils.toArray(".hero__layer").forEach((layer) => {
+        const speed = parseFloat(layer.dataset.speed) || 0.2;
+        gsap.to(layer, {
+          yPercent: speed * 40,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#hero",
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+          },
+        });
+      });
+
+      gsap.to("#heroContent", {
+        yPercent: 28,
+        scale: 0.92,
+        opacity: 0.15,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+
+      /* Sequence pin + scrub */
+      const seqTitle = document.getElementById("sequenceTitle");
+      const seqText = document.getElementById("sequenceText");
+      const total = seqFrames.length;
+
+      const seqTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#sequencePin",
+          start: "top top",
+          end: () => "+=" + window.innerHeight * total * 0.85,
+          pin: true,
+          scrub: 0.65,
+          anticipatePin: 1,
+          onUpdate: (self) => {
+            const idx = Math.min(total - 1, Math.floor(self.progress * total));
+            seqFrames.forEach((f, i) => {
+              f.frame.classList.toggle("is-active", i === idx);
+              f.dot.classList.toggle("is-on", i === idx);
+              if (f.video) {
+                if (i === idx) f.video.play().catch(() => {});
+                else f.video.pause();
+              }
+            });
+            const cur = seqFrames[idx].item;
+            if (seqTitle.textContent !== cur.title) {
+              seqTitle.textContent = cur.title;
+              seqText.textContent = cur.text;
+            }
+          },
+        },
+      });
+
+      seqFrames.forEach((f, i) => {
+        const start = i / total;
+        seqTl.fromTo(
+          f.frame,
+          {
+            opacity: i === 0 ? 1 : 0,
+            clipPath: i === 0 ? "inset(0% 0% 0% 0% round 0px)" : "inset(14% 14% 14% 14% round 1.25rem)",
+            scale: i === 0 ? 1 : 1.08,
+          },
+          {
+            opacity: 1,
+            clipPath: "inset(0% 0% 0% 0% round 0px)",
+            scale: 1,
+            duration: 1 / total,
+            ease: "none",
+          },
+          start
+        );
+        if (i < total - 1) {
+          seqTl.to(
+            f.frame,
+            {
+              opacity: 0,
+              scale: 0.96,
+              duration: 0.15 / total,
+              ease: "none",
+            },
+            start + 0.85 / total
+          );
+        }
+      });
+
+      /* Horizontal filmstrip */
+      const getScrollDist = () => {
+        const trackW = filmTrack.scrollWidth;
+        return Math.max(0, trackW - window.innerWidth + 80);
+      };
+
+      const filmTween = gsap.to(filmTrack, {
+        x: () => -getScrollDist(),
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#filmstripPin",
+          start: "top top",
+          end: () => "+=" + getScrollDist(),
+          pin: true,
+          scrub: 0.8,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+          onUpdate: (self) => {
+            const cards = filmTrack.querySelectorAll(".filmstrip__media");
+            const vel = self.getVelocity();
+            cards.forEach((media, i) => {
+              const progress = self.progress;
+              const offset = (i / cards.length - progress) * 40;
+              gsap.set(media, { x: offset + gsap.utils.clamp(-18, 18, vel * 0.002) });
+            });
+          },
+        },
+      });
+
+      /* Package reveal */
+      gsap.from(".package", {
+        y: 40,
+        opacity: 0,
+        stagger: 0.12,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: "#book",
+          start: "top 75%",
+        },
+      });
+
+      return () => {
+        seqTl.scrollTrigger && seqTl.scrollTrigger.kill();
+        seqTl.kill();
+        filmTween.scrollTrigger && filmTween.scrollTrigger.kill();
+        filmTween.kill();
+      };
+    });
+
+    /* 3D Perspective / curved drag carousel */
+    (function initCarousel() {
+      const carousel = document.getElementById("carousel");
+      const cards = gsap.utils.toArray(".carousel__card");
+      let x = 0;
+      let targetX = 0;
+      let dragging = false;
+      let startX = 0;
+      let startOff = 0;
+      let lastX = 0;
+      let velocity = 0;
+      let rafId;
+
+      const maxDrag = () => {
+        const totalW = track.scrollWidth;
+        const viewW = carousel.clientWidth;
+        return Math.min(0, viewW - totalW);
+      };
+
+      const applyCurve = () => {
+        const viewMid = carousel.getBoundingClientRect().left + carousel.clientWidth / 2;
+        cards.forEach((card) => {
+          const rect = card.getBoundingClientRect();
+          const cardMid = rect.left + rect.width / 2;
+          const dist = (cardMid - viewMid) / carousel.clientWidth;
+          const rotY = gsap.utils.clamp(-28, 28, dist * -42);
+          const rotX = gsap.utils.clamp(-8, 8, velocity * 0.015);
+          const z = -Math.abs(dist) * 80;
+          const y = Math.abs(dist) * 18;
+          gsap.set(card, {
+            rotateY: rotY,
+            rotateX: rotX,
+            z,
+            y,
+            force3D: true,
+          });
+        });
+      };
+
+      const tick = () => {
+        if (!dragging) {
+          targetX += velocity;
+          velocity *= 0.92;
+          if (Math.abs(velocity) < 0.05) velocity = 0;
+        }
+        targetX = gsap.utils.clamp(maxDrag(), 0, targetX);
+        x += (targetX - x) * 0.12;
+        gsap.set(track, { x });
+        applyCurve();
+        rafId = requestAnimationFrame(tick);
+      };
+
+      const onPointerDown = (e) => {
+        dragging = true;
+        startX = e.clientX ?? e.touches?.[0].clientX;
+        startOff = targetX;
+        lastX = startX;
+        velocity = 0;
+        carousel.setPointerCapture?.(e.pointerId);
+      };
+
+      const onPointerMove = (e) => {
+        const clientX = e.clientX ?? e.touches?.[0].clientX;
+        if (dragging) {
+          const dx = clientX - startX;
+          targetX = startOff + dx;
+          velocity = clientX - lastX;
+          lastX = clientX;
+        } else if (!("ontouchstart" in window)) {
+          // subtle hover tilt via mouse position across carousel
+          const rect = carousel.getBoundingClientRect();
+          const nx = ((clientX - rect.left) / rect.width - 0.5) * 2;
+          velocity += (nx * 2 - velocity) * 0.05;
+        }
+      };
+
+      const onPointerUp = () => {
+        dragging = false;
+      };
+
+      carousel.addEventListener("pointerdown", onPointerDown);
+      window.addEventListener("pointermove", onPointerMove);
+      window.addEventListener("pointerup", onPointerUp);
+      carousel.addEventListener("wheel", (e) => {
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY) || e.shiftKey) {
+          e.preventDefault();
+          targetX -= e.deltaX || e.deltaY;
+          velocity = -(e.deltaX || e.deltaY) * 0.15;
+        }
+      }, { passive: false });
+
+      window.addEventListener("resize", () => {
+        targetX = gsap.utils.clamp(maxDrag(), 0, targetX);
+      });
+
+      rafId = requestAnimationFrame(tick);
+
+      // Center-ish start on desktop
+      requestAnimationFrame(() => {
+        targetX = maxDrag() * 0.15;
+      });
+    })();
+
+    /* Soft entrance */
+    if (!reduceMotion) {
+      gsap.from("#heroContent > *", {
+        y: 40,
+        opacity: 0,
+        duration: 1.1,
+        stagger: 0.12,
+        ease: "power3.out",
+        delay: 0.15,
+      });
+    }
+
+    window.addEventListener("load", () => ScrollTrigger.refresh());
+  </script>
+</body>
+</html>

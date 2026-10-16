@@ -1,0 +1,10 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+.vercel
+
+# Duplicate original dumps (cleaned copies are tracked)
+assets/savefromins.com*
+assets/AQNDDXCvqKlo*.mp4
+assets/765284180_*.webp
