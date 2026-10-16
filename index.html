@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Camps n Kayaks — Odisha Maritime Adventure</title>
-  <meta name="description" content="Into The Wild: kayaking, wall climbing, zipline, jungle safari & nature camping across Cuttack, Bhubaneswar, Chandaka & Chilika." />
+  <title>Odisha Maritime — Water & Land Based Adventure</title>
+  <meta name="description" content="Odisha Maritime: kayaking, wall climbing, zipline, jungle safari & nature camping across Cuttack, Bhubaneswar, Chandaka & Chilika." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -183,14 +183,98 @@
       padding: clamp(4rem, 10vw, 7rem) clamp(1.25rem, 4vw, 3.5rem);
     }
 
-    /* —— Hero —— */
+    /* —— Hero (contained, not full-bleed) —— */
     .hero {
       position: relative;
       min-height: 100svh;
       display: grid;
-      align-items: end;
+      align-items: center;
+      padding: calc(var(--nav-h) + 1.5rem) clamp(1.25rem, 4vw, 3.5rem) clamp(2.5rem, 6vw, 4rem);
       overflow: hidden;
       isolation: isolate;
+    }
+
+    .hero__shell {
+      width: min(72rem, 100%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: clamp(1.75rem, 4vw, 3.5rem);
+      align-items: center;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      will-change: transform, opacity;
+    }
+
+    .hero__kicker {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.85rem;
+    }
+
+    .hero__brand {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: clamp(3.2rem, 8.5vw, 6.75rem);
+      line-height: 0.9;
+      letter-spacing: 0.01em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      max-width: 10ch;
+    }
+
+    .hero__brand em {
+      font-style: normal;
+      color: var(--amber);
+    }
+
+    .hero__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.2rem, 2.4vw, 1.75rem);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      max-width: 22ch;
+      margin-bottom: 1rem;
+      color: var(--offwhite);
+    }
+
+    .hero__copy {
+      max-width: 30rem;
+      margin-bottom: 1.75rem;
+      color: var(--mist);
+      font-size: clamp(1rem, 1.5vw, 1.1rem);
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+    }
+
+    .hero__media {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      max-height: min(72vh, 38rem);
+      border-radius: 1.35rem;
+      overflow: hidden;
+      isolation: isolate;
+      border: 1px solid var(--glass-border);
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.4),
+        inset 0 0 0 1px rgba(248, 249, 250, 0.04);
+      background: var(--forest-mid);
+      will-change: transform;
     }
 
     .hero__layers {
@@ -201,7 +285,7 @@
 
     .hero__layer {
       position: absolute;
-      inset: -8%;
+      inset: -10%;
       will-change: transform;
     }
 
@@ -217,17 +301,15 @@
 
     .hero__layer--mid {
       z-index: 2;
-      opacity: 0.28;
+      opacity: 0.32;
       mix-blend-mode: soft-light;
-      mask-image: linear-gradient(180deg, transparent 0%, #000 35%, #000 65%, transparent 100%);
-      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 35%, #000 65%, transparent 100%);
     }
 
     .hero__layer--fg {
       z-index: 3;
-      opacity: 0.45;
-      mask-image: linear-gradient(to top, #000 0%, transparent 50%);
-      -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 50%);
+      opacity: 0.4;
+      mask-image: linear-gradient(to top, #000 0%, transparent 55%);
+      -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 55%);
       pointer-events: none;
     }
 
@@ -236,58 +318,22 @@
       inset: 0;
       z-index: 4;
       background:
-        linear-gradient(180deg, rgba(10, 22, 16, 0.35) 0%, rgba(10, 22, 16, 0.08) 32%, rgba(10, 22, 16, 0.55) 72%, var(--ink) 100%),
-        linear-gradient(90deg, rgba(20, 40, 29, 0.35), transparent 50%);
+        linear-gradient(180deg, transparent 40%, rgba(10, 22, 16, 0.55) 100%),
+        linear-gradient(90deg, rgba(20, 40, 29, 0.2), transparent 50%);
       pointer-events: none;
     }
 
-    .hero__content {
-      position: relative;
+    .hero__media-caption {
+      position: absolute;
       z-index: 5;
-      width: min(72rem, 100%);
-      padding: 0 clamp(1.25rem, 4vw, 3.5rem) clamp(3.5rem, 8vw, 5.5rem);
-      will-change: transform, opacity;
-    }
-
-    .hero__brand {
+      left: 1.1rem;
+      bottom: 1.1rem;
       font-family: var(--font-display);
-      font-weight: 800;
-      font-size: clamp(3.4rem, 12vw, 8.5rem);
-      line-height: 0.88;
-      letter-spacing: 0.01em;
+      font-size: 0.85rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      margin-bottom: 0.85rem;
-      text-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
-    }
-
-    .hero__brand em {
-      font-style: normal;
-      color: var(--amber);
-    }
-
-    .hero__title {
-      font-family: var(--font-display);
-      font-weight: 700;
-      font-size: clamp(1.35rem, 3.2vw, 2.35rem);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      max-width: 18ch;
-      margin-bottom: 1rem;
-      color: var(--offwhite);
-    }
-
-    .hero__copy {
-      max-width: 32rem;
-      margin-bottom: 1.75rem;
-      color: var(--mist);
-      font-size: clamp(1rem, 1.6vw, 1.15rem);
-    }
-
-    .hero__actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.85rem;
-      align-items: center;
+      color: rgba(248, 249, 250, 0.8);
+      text-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
     }
 
     .btn {
@@ -321,35 +367,6 @@
     .btn--ghost:hover {
       border-color: var(--amber);
       color: var(--amber);
-    }
-
-    .hero__scroll {
-      position: absolute;
-      right: clamp(1.25rem, 4vw, 3.5rem);
-      bottom: clamp(2rem, 5vw, 3.5rem);
-      z-index: 5;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.6rem;
-      font-family: var(--font-display);
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      opacity: 0.7;
-    }
-
-    .hero__scroll-line {
-      width: 1px;
-      height: 3.5rem;
-      background: linear-gradient(var(--amber), transparent);
-      transform-origin: top;
-      animation: pulse-line 2.2s ease-in-out infinite;
-    }
-
-    @keyframes pulse-line {
-      0%, 100% { transform: scaleY(0.45); opacity: 0.4; }
-      50% { transform: scaleY(1); opacity: 1; }
     }
 
     /* —— Sequence —— */
@@ -786,7 +803,6 @@
 
     /* —— Reduced motion —— */
     @media (prefers-reduced-motion: reduce) {
-      .hero__scroll-line { animation: none; }
       html { scroll-behavior: auto; }
     }
 
@@ -808,7 +824,16 @@
       .nav__toggle { display: grid; }
       .booking__grid { grid-template-columns: 1fr; }
       .booking__panel { position: static; }
-      .hero__scroll { display: none; }
+      .hero__shell {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+      }
+      .hero__media {
+        order: -1;
+        aspect-ratio: 16 / 11;
+        max-height: min(42vh, 22rem);
+      }
+      .hero__brand { max-width: none; }
       .sequence__progress { display: none; }
     }
 
@@ -824,7 +849,7 @@
 </head>
 <body>
   <nav class="nav" id="nav" aria-label="Primary">
-    <a class="nav__brand" href="#top">Camps <span>n</span> Kayaks</a>
+    <a class="nav__brand" href="#top">Odisha <span>Maritime</span></a>
     <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
       <span></span>
     </button>
@@ -839,32 +864,33 @@
   <main id="top">
     <!-- HERO -->
     <section class="hero" id="hero" aria-label="Hero">
-      <div class="hero__layers" aria-hidden="true">
-        <div class="hero__layer hero__layer--video" data-speed="0.15">
-          <video id="heroVideo" muted loop playsinline autoplay preload="metadata"></video>
+      <div class="hero__shell">
+        <div class="hero__content" id="heroContent">
+          <p class="hero__kicker">Camps n Kayaks · Outdoor Adventure</p>
+          <p class="hero__brand">Odisha <em>Maritime</em></p>
+          <h1 class="hero__title">Into The Wild: Water &amp; Land Based Adventure</h1>
+          <p class="hero__copy">Kayaking Chilika waters, climbing Chandaka canopy, and camping under Godibari skies — from Cuttack &amp; Bhubaneswar.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#book">Plan Your Escape</a>
+            <a class="btn btn--ghost" href="#journey">Watch The Journey</a>
+          </div>
         </div>
-        <div class="hero__layer hero__layer--mid" data-speed="0.35">
-          <img id="heroMid" alt="" />
-        </div>
-        <div class="hero__layer hero__layer--fg" data-speed="0.6">
-          <img id="heroFg" alt="" />
-        </div>
-        <div class="hero__veil"></div>
-      </div>
 
-      <div class="hero__content" id="heroContent">
-        <p class="hero__brand">Camps <em>n</em> Kayaks</p>
-        <h1 class="hero__title">Into The Wild: Water &amp; Land Based Adventure</h1>
-        <p class="hero__copy">Odisha Maritime adventures from Cuttack &amp; Bhubaneswar — kayaking Chilika waters, climbing Chandaka canopy, and camping under Godibari skies.</p>
-        <div class="hero__actions">
-          <a class="btn btn--primary" href="#book">Plan Your Escape</a>
-          <a class="btn btn--ghost" href="#journey">Watch The Journey</a>
+        <div class="hero__media" id="heroMedia" aria-hidden="true">
+          <div class="hero__layers">
+            <div class="hero__layer hero__layer--video" data-speed="0.12">
+              <video id="heroVideo" muted loop playsinline autoplay preload="metadata"></video>
+            </div>
+            <div class="hero__layer hero__layer--mid" data-speed="0.28">
+              <img id="heroMid" alt="" />
+            </div>
+            <div class="hero__layer hero__layer--fg" data-speed="0.45">
+              <img id="heroFg" alt="" />
+            </div>
+            <div class="hero__veil"></div>
+          </div>
+          <p class="hero__media-caption">Godibari · Chandaka · Chilika</p>
         </div>
-      </div>
-
-      <div class="hero__scroll" aria-hidden="true">
-        <span>Scroll</span>
-        <div class="hero__scroll-line"></div>
       </div>
     </section>
 
@@ -952,7 +978,7 @@
   </main>
 
   <footer class="footer">
-    <p><strong>Camps n Kayaks</strong> — Odisha Maritime</p>
+    <p><strong>Odisha Maritime</strong> — Camps n Kayaks</p>
     <p>Outdoor adventure · Watersports · Nature camping</p>
   </footer>
 
@@ -1008,7 +1034,7 @@
     const ASSETS = {
       contact: {
         whatsapp: "917008173767",
-        whatsappMessage: "Hi Camps n Kayaks! I'd like to book an adventure.",
+        whatsappMessage: "Hi Odisha Maritime! I'd like to book an adventure.",
         mapsUrl: "https://www.google.com/maps/search/?api=1&query=Godibari+Nature+Camp+Chandaka+Bhubaneswar",
       },
 
@@ -1290,7 +1316,7 @@
       gsap.utils.toArray(".hero__layer").forEach((layer) => {
         const speed = parseFloat(layer.dataset.speed) || 0.2;
         gsap.to(layer, {
-          yPercent: speed * 40,
+          yPercent: speed * 28,
           ease: "none",
           scrollTrigger: {
             trigger: "#hero",
@@ -1302,9 +1328,20 @@
       });
 
       gsap.to("#heroContent", {
-        yPercent: 28,
-        scale: 0.92,
-        opacity: 0.15,
+        y: 48,
+        opacity: 0.2,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+        },
+      });
+
+      gsap.to("#heroMedia", {
+        y: -36,
+        scale: 0.96,
         ease: "none",
         scrollTrigger: {
           trigger: "#hero",
@@ -1534,12 +1571,20 @@
     /* Soft entrance */
     if (!reduceMotion) {
       gsap.from("#heroContent > *", {
-        y: 40,
+        y: 36,
         opacity: 0,
-        duration: 1.1,
-        stagger: 0.12,
+        duration: 1,
+        stagger: 0.1,
         ease: "power3.out",
-        delay: 0.15,
+        delay: 0.1,
+      });
+      gsap.from("#heroMedia", {
+        y: 48,
+        opacity: 0,
+        scale: 0.96,
+        duration: 1.15,
+        ease: "power3.out",
+        delay: 0.2,
       });
     }
 
